@@ -4,7 +4,381 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Complaints Management System</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* === CSS STYLES (Simulated external CSS file) === */
+    
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #4f46e5;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --gray-light: #e2e8f0;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    /* ===== BASE STYLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    h1, h2, h3, h4 {
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+      color: white;
+    }
+
+    .btn.ghost {
+      background-color: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn.ghost:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    /* ===== NAVBAR ===== */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .nav.scrolled {
+      padding: 1rem 2rem;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav nav a {
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    .nav nav a:hover {
+      color: var(--primary);
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero-project {
+      height: 60vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      margin-top: 80px;
+    }
+
+    .hero-overlay {
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .hero-project h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      animation: fadeInDown 1s ease;
+    }
+
+    .hero-project p {
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    /* ===== FEATURES SECTION ===== */
+    .features {
+      list-style-type: none;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .features li {
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      position: relative;
+      padding-left: 3rem;
+      transition: var(--transition);
+    }
+
+    .features li:hover {
+      transform: translateX(5px);
+    }
+
+    .features li::before {
+      content: "✓";
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    /* ===== PROJECT DETAILS ===== */
+    .project-details {
+      background-color: var(--gray-light);
+    }
+
+    .detail-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .detail-card {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .detail-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .detail-card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ===== SCREENSHOTS SECTION ===== */
+    .screenshots {
+      background-color: white;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    /* ===== TECH STACK ===== */
+    .tech-stack {
+      background-color: var(--gray-light);
+    }
+
+    .tech-icons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .tech-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tech-icon i {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 768px) {
+      .nav nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        padding: 1rem;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav nav.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .hero-project h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-project p {
+        font-size: 1.1rem;
+      }
+      
+      .tech-icons {
+        gap: 1rem;
+      }
+      
+      .tech-icon i {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -17,6 +391,9 @@
       <a href="index.html#contact">Contact</a>
       <a class="btn" href="https://github.com/MoeketsiTsotetsi" target="_blank">GitHub</a>
     </nav>
+    <div class="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
   </header>
 
   <!-- HERO -->
@@ -28,34 +405,115 @@
     </div>
   </section>
 
+  <!-- PROJECT DETAILS -->
+  <section class="section project-details">
+    <div class="container">
+      <h2>Project Overview</h2>
+      <p>The Complaints Management System is a comprehensive solution designed to streamline the process of handling customer complaints. It provides a centralized platform for logging, tracking, and resolving complaints while offering valuable insights through analytics.</p>
+      
+      <div class="detail-cards">
+        <div class="detail-card">
+          <h3><i class="fas fa-bullseye"></i> Objective</h3>
+          <p>To create an efficient, user-friendly system that reduces complaint resolution time and improves customer satisfaction through transparent tracking and timely updates.</p>
+        </div>
+        
+        <div class="detail-card">
+          <h3><i class="fas fa-users"></i> Target Users</h3>
+          <p>Customer service representatives, managers, and customers needing to submit or track complaints through a self-service portal.</p>
+        </div>
+        
+        <div class="detail-card">
+          <h3><i class="fas fa-chart-line"></i> Outcomes</h3>
+          <p>Reduced resolution time by 40%, increased customer satisfaction scores, and provided valuable data for improving products and services.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FEATURES -->
   <section class="section">
-    <h2>Key Features</h2>
-    <ul class="features">
-      <li>Log new complaints with detailed information</li>
-      <li>Track status of complaints (Open, In Progress, Resolved)</li>
-      <li>User-friendly dashboard with analytics and charts</li>
-      <li>Generate reports on complaint handling and response times</li>
-      <li>Commenting system for internal team communication</li>
-    </ul>
+    <div class="container">
+      <h2>Key Features</h2>
+      <ul class="features">
+        <li>Log new complaints with detailed information and categorization</li>
+        <li>Track status of complaints (Open, In Progress, Resolved, Closed)</li>
+        <li>Assign complaints to specific team members or departments</li>
+        <li>Set and track resolution deadlines with automated reminders</li>
+        <li>Internal communication system for collaboration on complaints</li>
+        <li>Customer portal to submit and track complaints</li>
+        <li>Automated notifications and status updates via email/SMS</li>
+        <li>Comprehensive reporting and analytics dashboard</li>
+        <li>Knowledge base integration for common solutions</li>
+        <li>Customer satisfaction surveys after resolution</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="section tech-stack">
+    <div class="container">
+      <h2>Technology Stack</h2>
+      <div class="tech-icons">
+        <div class="tech-icon">
+          <i class="fab fa-react"></i>
+          <span>React</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fab fa-node-js"></i>
+          <span>Node.js</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fas fa-database"></i>
+          <span>MongoDB</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fab fa-js"></i>
+          <span>Express.js</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fas fa-chart-bar"></i>
+          <span>Chart.js</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- SCREENSHOTS -->
-  <section class="section">
-    <h2>Screenshots</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="images/adminhome.jpg" alt="Dashboard overview">
-        <p>Dashboard showing complaint statuses and analytics.</p>
+  <section class="section screenshots">
+    <div class="container">
+      <h2>Screenshots</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="./images/adminhome.jpg" alt="Dashboard overview">
+          <div class="card-content">
+            <h3>Dashboard</h3>
+            <p>Dashboard showing complaint statuses, analytics, and key metrics.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Complaint details">
+          <div class="card-content">
+            <h3>Complaint Details</h3>
+            <p>Detailed view of individual complaints with actions and history.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1553484777-5bc5583222b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Reports">
+          <div class="card-content">
+            <h3>Reports</h3>
+            <p>Reports and insights on complaints handled over time.</p>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <img src="images/login.jpg" alt="Complaint details">
-        <p>Detailed view of individual complaints with actions.</p>
-      </div>
-      <div class="card">
-        <img src="images/registration.jpg" alt="Reports">
-        <p>Reports and insights on complaints handled over time.</p>
-      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="section" style="background-color: var(--primary); color: white; text-align: center;">
+    <div class="container">
+      <h2>Interested in This Project?</h2>
+      <p>I'm available for freelance work or full-time opportunities to build solutions like this.</p>
+      <a class="btn ghost" href="index.html#contact" style="color: white; border-color: white;">Get In Touch</a>
     </div>
   </section>
 
@@ -63,6 +521,35 @@
     <p>&copy; <span id="year"></span> Moeketsi Tsotetsi</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('.nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+    
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav nav');
+    
+    hamburger.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking on a link
+    const navLinks = document.querySelectorAll('.nav nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>

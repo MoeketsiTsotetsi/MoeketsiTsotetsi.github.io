@@ -158,7 +158,6 @@
       justify-content: center;
       text-align: center;
       color: white;
-      /* FIX: Add margin-top to account for fixed navbar */
       margin-top: 80px;
     }
 
@@ -319,25 +318,13 @@
 
     /* ===== ANIMATIONS ===== */
     @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* ===== RESPONSIVE DESIGN ===== */
@@ -363,7 +350,6 @@
       }
 
       .hero-project {
-        /* Adjust margin for mobile */
         margin-top: 70px;
         height: 50vh;
       }
@@ -406,7 +392,7 @@
   <section class="hero-project">
     <div class="hero-overlay">
       <h1>Customer Complaints Platform</h1>
-      <p>A modern  platform built with Spring, Angular, Hibernate and  MYSQL meant to simulate a company's customer complaints management system.</p>
+      <p>A modern platform built with Spring Boot, Angular, Hibernate, and MySQL to streamline the management and resolution of customer complaints.</p>
       <a class="btn" href="index.html">Back to Portfolio</a>
     </div>
   </section>
@@ -415,22 +401,22 @@
   <section class="section project-details">
     <div class="container">
       <h2>Project Overview</h2>
-      <p>The Sneaker E-Commerce Platform is a full-featured online store built with modern web technologies. It provides a seamless shopping experience for sneaker enthusiasts with advanced filtering, wishlist functionality, and a secure checkout process.</p>
+      <p>The Customer Complaints Platform is a web-based solution that enables customers to submit complaints, track resolution status, and receive timely updates. Administrators have access to dashboards for managing cases, monitoring resolution progress, and generating analytics to improve customer service delivery.</p>
       
       <div class="detail-cards">
         <div class="detail-card">
           <h3><i class="fas fa-bullseye"></i> Objective</h3>
-          <p>To create a high-performance e-commerce platform specifically for sneakers with intuitive navigation, advanced search capabilities, and a seamless purchasing experience.</p>
+          <p>To create a transparent, efficient, and user-friendly complaint management system that bridges the gap between customers and support teams.</p>
         </div>
         
         <div class="detail-card">
           <h3><i class="fas fa-users"></i> Target Users</h3>
-          <p>Sneaker enthusiasts, collectors, and casual buyers looking for a specialized platform to browse, compare, and purchase sneakers online.</p>
+          <p>Customers seeking resolution for their issues and company administrators responsible for complaint handling, tracking, and reporting.</p>
         </div>
         
         <div class="detail-card">
           <h3><i class="fas fa-chart-line"></i> Outcomes</h3>
-          <p>Increased conversion rate by 35%, reduced cart abandonment by 25%, and improved customer satisfaction with intuitive filtering and search features.</p>
+          <p>Reduced resolution times, improved accountability, enhanced customer satisfaction, and valuable insights into recurring complaint trends.</p>
         </div>
       </div>
     </div>
@@ -441,12 +427,12 @@
     <div class="container">
       <h2>Key Features</h2>
       <ul class="features">
-        <li>Inventory management with real-time stock updates</li>
-        <li>Secure payment processing with multiple payment options</li>
-        <li>Order tracking and history for customers</li>
-        <li>Admin dashboard for product and order management</li>
-        <li>Responsive design optimized for all devices</li>
-        <li>Product reviews and rating system</li>
+        <li>Complaint submission with category selection</li>
+        <li>Real-time complaint status tracking</li>
+        <li>Role-based dashboards for customers and administrators</li>
+        <li>Escalation workflow for unresolved complaints</li>
+        <li>Analytics and reporting on complaints trends</li>
+        <li>Responsive design for both web and mobile users</li>
       </ul>
     </div>
   </section>
@@ -469,17 +455,17 @@
           <span>MySQL</span>
         </div>
         <div class="tech-icon">
-          <i class="fab fa-bootstrap"></i>
-          <span>Bootstrap</span>
-        </div>
-        <div class="tech-icon">
           <i class="fab fa-angular"></i>
           <span>Angular</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fas fa-table"></i>
+          <span>Hibernate</span>
         </div>
       </div>
       <div class="detail-card" style="max-width: 800px; margin: 2rem auto;">
         <h3><i class="fas fa-info-circle"></i> Technical Implementation</h3>
-        <p>The application was built using Blazor Server for a rich interactive experience without requiring much client-side JavaScript. The backend utilizes C# with Entity Framework Core for data access, and Microsoft SQL Server for reliable data storage. The UI is implemented with Bootstrap for a responsive and modern design.</p>
+        <p>The backend is developed using Spring Boot and Hibernate to ensure scalability and reliability. Angular powers the frontend, delivering an interactive and responsive user experience. MySQL is used for structured complaint data storage. Bootstrap provides a modern UI layout, and REST APIs connect the frontend with the backend seamlessly.</p>
       </div>
     </div>
   </section>
@@ -490,46 +476,20 @@
       <h2>Screenshots</h2>
       <div class="grid">
         <div class="card">
-          <img src="./images/home.jpg" alt="Sneaker store homepage">
+          <img src="./images/home.jpg" alt="Complaint submission page">
           <div class="card-content">
-            <h3>Homepage</h3>
-            <p>Featured sneakers, new arrivals, and promotional banners.</p>
+            <h3>Complaint Submission</h3>
+            <p>Customers can submit complaints with categories, descriptions, and attachments.</p>
           </div>
         </div>
         <div class="card">
-          <img src="./images/shop.jpg" alt="Product listing">
+          <img src="./images/shop.jpg" alt="Complaint tracking">
           <div class="card-content">
-            <h3>Product Listing</h3>
-            <p>Filterable grid of available sneakers with sorting options.</p>
+            <h3>Complaint Tracking</h3>
+            <p>Users can view complaint status and resolution history in real time.</p>
           </div>
         </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Product detail">
-          <div class="card-content">
-            <h3>Product Details</h3>
-            <p>Detailed view with multiple images, sizes, and descriptions.</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1563013546-7e5cae5aae14?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Shopping cart">
-          <div class="card-content">
-            <h3>Shopping Cart</h3>
-            <p>Cart management with quantity adjustment and promo codes.</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Checkout process">
-          <div class="card-content">
-            <h3>Checkout</h3>
-            <p>Multi-step checkout process with address and payment details.</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1596755097776-4c5f0c4d7f43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Admin dashboard">
-          <div class="card-content">
-            <h3>Admin Dashboard</h3>
-            <p>Backend interface for managing products, orders, and customers.</p>
-          </div>
+        
         </div>
       </div>
     </div>

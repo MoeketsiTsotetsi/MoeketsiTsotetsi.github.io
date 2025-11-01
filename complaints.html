@@ -288,12 +288,17 @@
       background-color: var(--gray-light);
     }
 
+    .tech-stack h2 {
+      text-align: center;
+    }
+
     .tech-icons {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 2rem;
       margin-top: 2rem;
+      text-align: center;
     }
 
     .tech-icon {
@@ -361,13 +366,25 @@
       .hero-project p {
         font-size: 1.1rem;
       }
-      
+
+      /* Center tech heading + icons on mobile */
+      .tech-stack h2 {
+        text-align: center;
+      }
+
       .tech-icons {
+        justify-content: center;
+        text-align: center;
         gap: 1rem;
       }
-      
+
       .tech-icon i {
         font-size: 2rem;
+      }
+
+      /* Center the Get In Touch section */
+      .section[style*="background-color: var(--primary)"] {
+        text-align: center;
       }
     }
   </style>
@@ -392,7 +409,7 @@
   <section class="hero-project">
     <div class="hero-overlay">
       <h1>Customer Complaints Platform</h1>
-      <p>A modern platform built with Spring Boot, Angular, Hibernate, and MySQL to streamline the management and resolution of customer complaints.</p>
+      <p>A modern platform built with Spring Boot, Angular, Hibernate, and MySQL to streamline complaint management.</p>
       <a class="btn" href="index.html">Back to Portfolio</a>
     </div>
   </section>
@@ -401,39 +418,24 @@
   <section class="section project-details">
     <div class="container">
       <h2>Project Overview</h2>
-      <p>The Customer Complaints Platform is a web-based solution that enables customers to submit complaints, track resolution status, and receive timely updates. Administrators have access to dashboards for managing cases, monitoring resolution progress, and generating analytics to improve customer service delivery.</p>
+      <p>The Customer Complaints Platform enables customers to submit, track, and resolve complaints. Administrators get dashboards for managing and reporting cases.</p>
       
       <div class="detail-cards">
         <div class="detail-card">
           <h3><i class="fas fa-bullseye"></i> Objective</h3>
-          <p>To create a transparent, efficient, and user-friendly complaint management system that bridges the gap between customers and support teams.</p>
+          <p>To create an efficient complaint management system connecting customers and support teams.</p>
         </div>
         
         <div class="detail-card">
           <h3><i class="fas fa-users"></i> Target Users</h3>
-          <p>Customers seeking resolution for their issues and company administrators responsible for complaint handling, tracking, and reporting.</p>
+          <p>Customers submitting issues and administrators handling resolutions and reporting.</p>
         </div>
         
         <div class="detail-card">
           <h3><i class="fas fa-chart-line"></i> Outcomes</h3>
-          <p>Reduced resolution times, improved accountability, enhanced customer satisfaction, and valuable insights into recurring complaint trends.</p>
+          <p>Reduced resolution time, improved satisfaction, and actionable trend analytics.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="section">
-    <div class="container">
-      <h2>Key Features</h2>
-      <ul class="features">
-        <li>Complaint submission with category selection</li>
-        <li>Real-time complaint status tracking</li>
-        <li>Role-based dashboards for customers and administrators</li>
-        <li>Escalation workflow for unresolved complaints</li>
-        <li>Analytics and reporting on complaints trends</li>
-        <li>Responsive design for both web and mobile users</li>
-      </ul>
     </div>
   </section>
 
@@ -442,64 +444,28 @@
     <div class="container">
       <h2>Technology Stack</h2>
       <div class="tech-icons">
-        <div class="tech-icon">
-          <i class="fab fa-java"></i>
-          <span>Java</span>
-        </div>
-        <div class="tech-icon">
-          <i class="fas fa-leaf"></i>
-          <span>Spring Boot</span>
-        </div>
-        <div class="tech-icon">
-          <i class="fas fa-database"></i>
-          <span>MySQL</span>
-        </div>
-        <div class="tech-icon">
-          <i class="fab fa-angular"></i>
-          <span>Angular</span>
-        </div>
-        <div class="tech-icon">
-          <i class="fas fa-table"></i>
-          <span>Hibernate</span>
-        </div>
+        <div class="tech-icon"><i class="fab fa-java"></i><span>Java</span></div>
+        <div class="tech-icon"><i class="fas fa-leaf"></i><span>Spring Boot</span></div>
+        <div class="tech-icon"><i class="fas fa-database"></i><span>MySQL</span></div>
+        <div class="tech-icon"><i class="fab fa-angular"></i><span>Angular</span></div>
+        <div class="tech-icon"><i class="fas fa-table"></i><span>Hibernate</span></div>
       </div>
+
       <div class="detail-card" style="max-width: 800px; margin: 2rem auto;">
         <h3><i class="fas fa-info-circle"></i> Technical Implementation</h3>
-        <p>The backend is developed using Spring Boot and Hibernate to ensure scalability and reliability. Angular powers the frontend, delivering an interactive and responsive user experience. MySQL is used for structured complaint data storage. Bootstrap provides a modern UI layout, and REST APIs connect the frontend with the backend seamlessly.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SCREENSHOTS -->
-  <section class="section screenshots">
-    <div class="container">
-      <h2>Screenshots</h2>
-      <div class="grid">
-        <div class="card">
-          <img src="./images/home.jpg" alt="Complaint submission page">
-          <div class="card-content">
-            <h3>Complaint Submission</h3>
-            <p>Customers can submit complaints with categories, descriptions, and attachments.</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="./images/adminhome.jpg" alt="Admin Dashboard Home">
-          <div class="card-content">
-            <h3>Admin Dashboard Home</h3>
-            <p>Admin Dashboard View With All The Admin Functions</p>
-          </div>
-        </div>
-        
-        </div>
+        <p>Backend: Spring Boot + Hibernate for scalability.  
+        Frontend: Angular with REST APIs.  
+        Database: MySQL for structured data.  
+        Bootstrap ensures responsive, modern UI.</p>
       </div>
     </div>
   </section>
 
   <!-- CALL TO ACTION -->
-  <section class="section" style="background-color: var(--primary); color: white; text-align: center;">
+  <section class="section" style="background-color: var(--primary); color: white;">
     <div class="container">
       <h2>Interested in This Project?</h2>
-      <p>I'm available for freelance work or full-time opportunities to build solutions like this.</p>
+      <p>I'm available for freelance or full-time roles to build robust web solutions like this.</p>
       <a class="btn ghost" href="index.html#contact" style="color: white; border-color: white;">Get In Touch</a>
     </div>
   </section>
@@ -511,32 +477,18 @@
   <script>
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
-    
+
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
       const nav = document.querySelector('.nav');
-      if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
+      nav.classList.toggle('scrolled', window.scrollY > 50);
     });
-    
+
     // Mobile menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav nav');
-    
-    hamburger.addEventListener('click', function() {
-      navMenu.classList.toggle('active');
-    });
-    
-    // Close mobile menu when clicking on a link
-    const navLinks = document.querySelectorAll('.nav nav a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        navMenu.classList.remove('active');
-      });
-    });
+    hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+    document.querySelectorAll('.nav nav a').forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
   </script>
 </body>
 </html>

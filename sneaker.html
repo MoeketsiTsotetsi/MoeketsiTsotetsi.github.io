@@ -158,7 +158,6 @@
       justify-content: center;
       text-align: center;
       color: white;
-      /* FIX: Add margin-top to account for fixed navbar */
       margin-top: 80px;
     }
 
@@ -289,6 +288,10 @@
       background-color: var(--gray-light);
     }
 
+    .tech-stack h2 {
+      text-align: center;
+    }
+
     .tech-icons {
       display: flex;
       justify-content: center;
@@ -319,25 +322,13 @@
 
     /* ===== ANIMATIONS ===== */
     @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* ===== RESPONSIVE DESIGN ===== */
@@ -363,7 +354,6 @@
       }
 
       .hero-project {
-        /* Adjust margin for mobile */
         margin-top: 70px;
         height: 50vh;
       }
@@ -375,11 +365,17 @@
       .hero-project p {
         font-size: 1.1rem;
       }
-      
-      .tech-icons {
-        gap: 1rem;
+
+      /* Center the Technology Stack text and icons on mobile */
+      .tech-stack h2 {
+        text-align: center;
       }
-      
+
+      .tech-icons {
+        justify-content: center;
+        text-align: center;
+      }
+
       .tech-icon i {
         font-size: 2rem;
       }
@@ -415,39 +411,21 @@
   <section class="section project-details">
     <div class="container">
       <h2>Project Overview</h2>
-      <p>The Sneaker E-Commerce Platform is a full-featured online store built with modern web technologies. It provides a seamless shopping experience for sneaker enthusiasts with advanced filtering, wishlist functionality, and a secure checkout process.</p>
-      
+      <p>The Sneaker E-Commerce Platform is a full-featured online store built with modern web technologies...</p>
       <div class="detail-cards">
         <div class="detail-card">
           <h3><i class="fas fa-bullseye"></i> Objective</h3>
-          <p>To create a high-performance e-commerce platform specifically for sneakers with intuitive navigation, advanced search capabilities, and a seamless purchasing experience.</p>
+          <p>To create a high-performance e-commerce platform...</p>
         </div>
-        
         <div class="detail-card">
           <h3><i class="fas fa-users"></i> Target Users</h3>
-          <p>Sneaker enthusiasts, collectors, and casual buyers looking for a specialized platform to browse, compare, and purchase sneakers online.</p>
+          <p>Sneaker enthusiasts, collectors, and casual buyers...</p>
         </div>
-        
         <div class="detail-card">
           <h3><i class="fas fa-chart-line"></i> Outcomes</h3>
-          <p>Increased conversion rate by 35%, reduced cart abandonment by 25%, and improved customer satisfaction with intuitive filtering and search features.</p>
+          <p>Increased conversion rate by 35%, reduced cart abandonment by 25%...</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="section">
-    <div class="container">
-      <h2>Key Features</h2>
-      <ul class="features">
-        <li>Inventory management with real-time stock updates</li>
-        <li>Secure payment processing with multiple payment options</li>
-        <li>Order tracking and history for customers</li>
-        <li>Admin dashboard for product and order management</li>
-        <li>Responsive design optimized for all devices</li>
-        <li>Product reviews and rating system</li>
-      </ul>
     </div>
   </section>
 
@@ -479,38 +457,7 @@
       </div>
       <div class="detail-card" style="max-width: 800px; margin: 2rem auto;">
         <h3><i class="fas fa-info-circle"></i> Technical Implementation</h3>
-        <p>The application was built using Blazor Server for a rich interactive experience without requiring much client-side JavaScript. The backend utilizes C# with Entity Framework Core for data access, and Microsoft SQL Server for reliable data storage. The UI is implemented with Bootstrap for a responsive and modern design.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SCREENSHOTS -->
-  <section class="section screenshots">
-    <div class="container">
-      <h2>Screenshots</h2>
-      <div class="grid">
-        <div class="card">
-          <img src="./images/home.jpg" alt="Sneaker store homepage">
-          <div class="card-content">
-            <h3>Homepage</h3>
-            <p>Featured sneakers, new arrivals, and promotional banners.</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="./images/shop.jpg" alt="Product listing">
-          <div class="card-content">
-            <h3>Product Listing</h3>
-            <p>Filterable grid of available sneakers with sorting options.</p>
-          </div>
-        </div>
-        
-        <div class="card">
-          <img src="./images/login-sn.png" alt="Login screen">
-          <div class="card-content">
-            <h3>Login</h3>
-            <p>Login screen with a picturesque background image.</p>
-          </div>
-        </div>
+        <p>The application was built using Blazor Server...</p>
       </div>
     </div>
   </section>
@@ -529,34 +476,19 @@
   </footer>
 
   <script>
-    // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
-    
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-      const nav = document.querySelector('.nav');
-      if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
     });
-    
-    // Mobile menu toggle
+
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav nav');
-    
-    hamburger.addEventListener('click', function() {
-      navMenu.classList.toggle('active');
-    });
-    
-    // Close mobile menu when clicking on a link
-    const navLinks = document.querySelectorAll('.nav nav a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        navMenu.classList.remove('active');
-      });
-    });
+    hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+
+    document.querySelectorAll('.nav nav a').forEach(link =>
+      link.addEventListener('click', () => navMenu.classList.remove('active'))
+    );
   </script>
 </body>
 </html>
